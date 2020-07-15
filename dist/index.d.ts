@@ -1,2 +1,2 @@
-export { wrapper, makeSwaggerRouter } from './wrapper';
-export { request, summary, params, desc, description, query, path, body, tags, apiObjects, middlewares, formData, responses } from './decorator';
+export { apiObjects, body, desc, description, formData, middlewares, params, path, query, request, responses, security, summary, tags } from './decorator';
+export { makeSwaggerRouter, wrapper } from './wrapper';

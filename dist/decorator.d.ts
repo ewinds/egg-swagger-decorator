@@ -11,9 +11,10 @@ declare const desc: _.CurriedFunction2<any, any, (target: any, name: any, descri
 declare const description: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const summary: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const tags: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
+declare const security: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const params: _.CurriedFunction2<any, any, (target: any, name: any, descriptor: any) => any>;
 declare const query: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const path: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const body: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
 declare const formData: _.CurriedFunction1<any, (target: any, name: any, descriptor: any) => any>;
-export { request, summary, params, desc, description, query, path, body, tags, apiObjects, middlewares, formData, responses, };
+export { request, summary, params, desc, description, query, path, body, tags, apiObjects, middlewares, formData, responses, security };

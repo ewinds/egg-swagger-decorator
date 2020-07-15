@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
-
 import { Response } from './swaggerJSON';
+
 /**
  * used for building swagger docs object
  */
@@ -56,7 +56,6 @@ const request = (method, path) => (target, name, descriptor) => {
   descriptor.value.path = path;
   _addToApiObject(target, name, apiObjects, {
     request: { method, path },
-    security: [{ ApiKeyAuth: [] }],
   });
   return descriptor;
 };
@@ -81,6 +80,8 @@ const summary = desc('summary');
 
 const tags = desc('tags');
 
+const security = desc('security')
+
 const params = _.curry(_params);
 
 // below are [parameters]
@@ -99,5 +100,6 @@ const formData = params('formData');
 
 export {
   request, summary, params, desc, description, query, path, body, tags,
-  apiObjects, middlewares, formData, responses,
+  apiObjects, middlewares, formData, responses, security
 };
+

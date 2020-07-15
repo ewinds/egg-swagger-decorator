@@ -11,6 +11,8 @@ export interface WrapperOptions {
     swaggerHtmlEndpoint?: string;
     makeSwaggerRouter?: boolean;
     [param: string]: any;
+    oauth2RedirectUrl?: string;
+    oauth2RedirectHtmlEndpoint?: string;
 }
 export interface Response {
     [name: number]: any;

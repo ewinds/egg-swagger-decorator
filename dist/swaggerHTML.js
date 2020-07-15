@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const swaggerHTML = (apiPath) => `
+const swaggerHTML = (apiPath, oauth2RedirectUrl) => `
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +83,8 @@ const swaggerHTML = (apiPath) => `
       plugins: [
         SwaggerUIBundle.plugins.DownloadUrl
       ],
-      layout: "StandaloneLayout"
+      layout: "StandaloneLayout",
+      oauth2RedirectUrl: "${oauth2RedirectUrl}"
     })
     window.ui = ui
   }
@@ -94,4 +95,4 @@ const swaggerHTML = (apiPath) => `
 
 `;
 exports.default = swaggerHTML;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3dhZ2dlckhUTUwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9saWIvc3dhZ2dlckhUTUwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxNQUFNLFdBQVcsR0FBRyxDQUFDLE9BQWUsRUFBRSxFQUFFLENBQ3RDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztjQTBFWSxPQUFPOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Q0FrQnBCLENBQUM7QUFFRixrQkFBZSxXQUFXLENBQUMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3dhZ2dlckhUTUwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9saWIvc3dhZ2dlckhUTUwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxNQUFNLFdBQVcsR0FBRyxDQUFDLE9BQWUsRUFBRSxpQkFBeUIsRUFBRSxFQUFFLENBQ2pFOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztjQTBFWSxPQUFPOzs7Ozs7Ozs7OzRCQVVPLGlCQUFpQjs7Ozs7Ozs7O0NBUzVDLENBQUM7QUFFRixrQkFBZSxXQUFXLENBQUMifQ==

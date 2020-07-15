@@ -1,4 +1,4 @@
-const swaggerHTML = (apiPath: string) =>
+const swaggerHTML = (apiPath: string, oauth2RedirectUrl: string) =>
   `
 
 <!DOCTYPE html>
@@ -82,7 +82,8 @@ const swaggerHTML = (apiPath: string) =>
       plugins: [
         SwaggerUIBundle.plugins.DownloadUrl
       ],
-      layout: "StandaloneLayout"
+      layout: "StandaloneLayout",
+      oauth2RedirectUrl: "${oauth2RedirectUrl}"
     })
     window.ui = ui
   }

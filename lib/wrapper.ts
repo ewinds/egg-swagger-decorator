@@ -1,10 +1,10 @@
 import { Application, Controller, Router } from 'egg';
 import * as _ from 'lodash';
-import {apiObjects} from './decorator';
+import { apiObjects } from './decorator';
+import oauth2RedirectHTML from "./oauth2RedirectHTML";
 import swaggerHTML from './swaggerHTML';
-import swaggerJSON from './swaggerJSON';
-import {WrapperOptions} from './swaggerJSON';
-import {convertPath, getPath, loadSwaggerClassesToContext} from './utils';
+import swaggerJSON, { WrapperOptions } from './swaggerJSON';
+import { convertPath, getPath, loadSwaggerClassesToContext } from './utils';
 import validate from './validate';
 /**
  * allowed http methods
@@ -40,7 +40,9 @@ const handleSwagger = (router : Router, options: WrapperOptions) => {
   const {
     swaggerJsonEndpoint = '/swagger-json',
     swaggerHtmlEndpoint = '/swagger-html',
-    prefix = ''
+    oauth2RedirectHtmlEndpoint = '/oauth2-redirect',
+    prefix = '',
+    oauth2RedirectUrl = '/oauth2-redirect',
   } = options;
 
   // setup swagger router
@@ -48,7 +50,10 @@ const handleSwagger = (router : Router, options: WrapperOptions) => {
     ctx.body = swaggerJSON(options, apiObjects);
   });
   router.get(swaggerHtmlEndpoint, async(ctx) => {
-    ctx.body = swaggerHTML(getPath(prefix, swaggerJsonEndpoint));
+    ctx.body = swaggerHTML(getPath(prefix, swaggerJsonEndpoint), oauth2RedirectUrl);
+  });
+  router.get(oauth2RedirectHtmlEndpoint, async(ctx) => {
+    ctx.body = oauth2RedirectHTML();
   });
 };
 
@@ -128,6 +133,7 @@ const wrapper = (app : Application, options?: WrapperOptions) => {
     prefix: '',
     swaggerJsonEndpoint: '/swagger-json',
     swaggerHtmlEndpoint: '/swagger-html',
+    oauth2RedirectHtmlEndpoint: '/oauth2-redirect',
     makeSwaggerRouter: false,
   };
   Object.assign(opts, options || {});
@@ -137,4 +143,5 @@ const wrapper = (app : Application, options?: WrapperOptions) => {
   handleSwagger(router, opts);
 };
 const makeSwaggerRouter = (app: Application) => handleMapDir(app);
-export  {wrapper, makeSwaggerRouter};
+export { wrapper, makeSwaggerRouter };
+

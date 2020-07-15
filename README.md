@@ -1,11 +1,11 @@
-# egg-swagger-decorator [npm-url]
+# egg-swagger-decorator-oauth2 [npm-url]
 > using decorator to auto generate swagger json docs
 
 ## Installation
 
 
 ```bash
-npm install egg-swagger-decorator
+npm install egg-swagger-decorator-oauth2
 ```
 
 ## Introduction
@@ -21,7 +21,7 @@ based on [Swagger OpenAPI Specification 2.0](https://github.com/OAI/OpenAPI-Spec
 ```
 // using commonds below to start and test the example server
 
-git clone https://github.com/Cody2333/egg-swagger-decorator.git
+git clone https://github.com/ewinds/egg-swagger-decorator.git
 
 cd egg-swagger-decorator
 
@@ -51,6 +51,10 @@ export default (app: Application) => {
     // swaggerHtmlEndpoint: '/sw',
     // // [optional] default is /swagger-json
     // swaggerJsonEndpoint: '/sj',
+    // // [optional] default is /oauth2-redirect
+    // oauth2RedirectHtmlEndpoint: '/or',
+    // // [optional] default is /oauth2-redirect
+    // oauth2RedirectUrl: 'http://localhost:7001/oauth2-redirect',
     // // [optional] default is false. if true, will call makeSwaggerRouter(app) automatically
     // makeswaggerRouter: false,
 
@@ -70,7 +74,7 @@ export default (app: Application) => {
 // controller/test.ts
 
 import { Controller } from 'egg';
-import { request, summary, query, path, body, tags } from 'egg-swagger-decorator';
+import { request, summary, query, path, body, tags } from 'egg-swagger-decorator-oauth2';
 
 const testTag = tags(['test']);
 
@@ -173,4 +177,4 @@ responses
  © MIT
 
 
-[npm-url]: https://npmjs.org/package/egg-swagger-decorator
+[npm-url]: https://npmjs.org/package/egg-swagger-decorator-oauth2
